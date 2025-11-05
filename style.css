@@ -1,0 +1,1122 @@
+/* ==================== Font Face ==================== */
+@font-face {
+  font-family: "Roboto";
+  src: url("../fonts/Roboto/Roboto-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("../fonts/Roboto/Roboto-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* ==================== CSS Variables ==================== */
+:root {
+  --primary-color: #4458dc;
+  --primary-color2: #854fee;
+  --title-color: #141313;
+  --text-color: #777777;
+  --border-color: #201f1f17;
+  --gradient-color: linear-gradient(90deg, #4458dc 0%, #854fee 100%);
+  --shadow-color: 0px 10px 30px rgba(118, 85, 225, 0.3);
+  --box-shadow: 0px 10px 30px rgba(57, 56, 61, 0.205);
+  --roboto: "Roboto", cursive;
+}
+
+/* ==================== Reset & Base Styles ==================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: var(--roboto);
+  color: var(--text-color);
+  line-height: 1.6;
+  font-size: 16px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+button:focus,
+button:active,
+button:hover {
+  outline: 0px !important;
+  box-shadow: none !important;
+}
+
+/* ==================== Utility Classes ==================== */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.container-fluid {
+  width: 100%;
+  padding: 0 15px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+}
+
+.text-secondary {
+  color: var(--text-color);
+}
+
+.font-roboto {
+  font-family: var(--roboto);
+}
+
+.title-text {
+  font: normal bold 50px/72px var(--roboto);
+}
+
+.title-h1 {
+  font: normal bold 39px/40px var(--roboto);
+}
+
+.para {
+  color: var(--text-color);
+  font: normal 500 16px/25px var(--roboto);
+}
+
+/* ==================== Button Styles ==================== */
+.btn {
+  display: inline-block;
+  font-family: var(--roboto);
+  transition: all 0.3s ease;
+}
+
+.button {
+  padding: 0.8rem 2.2rem;
+  font: normal 500 16px/20px var(--roboto);
+  position: relative;
+  border: 3px solid transparent;
+  border-radius: 4px;
+}
+
+.button.primary-button {
+  background: var(--gradient-color);
+  background-clip: padding-box;
+  color: whitesmoke;
+  transition: background 0.6s ease;
+  box-shadow: var(--box-shadow);
+}
+
+.button.primary-button:hover {
+  background: whitesmoke;
+  background-clip: padding-box;
+  color: black;
+}
+
+.button.primary-button::after,
+.button.secondary-button::after {
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  bottom: -2px;
+  right: -2px;
+  background: var(--gradient-color);
+  content: " ";
+  z-index: -1;
+  border-radius: 4px;
+}
+
+.button.secondary-button {
+  background: white;
+  background-clip: padding-box;
+  transition: background 0.6s ease;
+}
+
+.button.secondary-button:hover {
+  background: var(--gradient-color);
+  color: whitesmoke;
+  box-shadow: var(--box-shadow);
+}
+
+.btn-success {
+  background: var(--gradient-color);
+  color: white;
+  padding: 0.8rem 2rem;
+  font: normal 500 16px/20px var(--roboto);
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.btn-success:hover {
+  box-shadow: var(--box-shadow);
+  transform: translateY(-2px);
+}
+
+/* ==================== Header Area ==================== */
+.header-area {
+  position: relative;
+  width: 100%;
+  z-index: 999;
+}
+
+.navbar_fixed {
+  position: fixed;
+  top: -1px;
+  left: 0;
+  right: 0;
+  background: #ffffff;
+  box-shadow: var(--box-shadow);
+  z-index: 999;
+  transition: background 1s ease;
+}
+
+.main-menu {
+  width: 100%;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-brand img {
+  height: auto;
+  max-height: 50px;
+}
+
+.navbar-toggler {
+  display: none;
+  background: transparent;
+  border: 1px solid var(--border-color);
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+.navbar-toggler-icon {
+  width: 25px;
+  height: 3px;
+  background-color: var(--title-color);
+  display: block;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.navbar-toggler-icon::before,
+.navbar-toggler-icon::after {
+  content: "";
+  width: 25px;
+  height: 3px;
+  background-color: var(--title-color);
+  position: absolute;
+  left: 0;
+  transition: all 0.3s ease;
+}
+
+.navbar-toggler-icon::before {
+  top: -8px;
+}
+
+.navbar-toggler-icon::after {
+  bottom: -8px;
+}
+
+.navbar-collapse {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-nav {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-item {
+  position: relative;
+}
+
+.nav-item.active .nav-link {
+  color: var(--primary-color);
+}
+
+.nav-link {
+  color: var(--title-color);
+  font: normal 500 16px/20px var(--roboto);
+  text-transform: capitalize;
+  transition: color 0.3s ease;
+  display: block;
+  padding: 0.5rem 0;
+}
+
+.nav-link:hover {
+  color: var(--primary-color);
+}
+
+/* ==================== Banner Area ==================== */
+.site-main {
+  width: 100%;
+}
+
+.site-banner {
+  width: 100%;
+  padding: 5rem 0;
+  background: linear-gradient(135deg, #f5f7fa 0%, #e3e8f0 100%);
+}
+
+.banner-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.site-title {
+  flex: 1;
+  min-width: 300px;
+  padding-right: 2rem;
+}
+
+.site-title h3.title-text {
+  font: normal 500 30px/40px var(--roboto);
+  color: var(--text-color);
+  margin-bottom: 0.5rem;
+}
+
+.site-title h1.title-text {
+  font: normal bold 41px/50px var(--roboto);
+  color: var(--title-color);
+  margin-bottom: 0.5rem;
+}
+
+.site-title h4.title-text {
+  font: normal 500 22px/30px var(--roboto);
+  color: var(--text-color);
+  margin-bottom: 2rem;
+}
+
+.site-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.banner-image {
+  flex: 1;
+  min-width: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.banner-image img {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+}
+
+/* ==================== About Area ==================== */
+.about-area {
+  padding: 5rem 0;
+}
+
+.about-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+
+.about-image {
+  flex: 1;
+  min-width: 300px;
+  padding: 1rem;
+}
+
+.about-image img {
+  width: 100%;
+  height: auto;
+}
+
+.about-content {
+  flex: 1;
+  min-width: 300px;
+  padding: 1rem;
+}
+
+.about-content h2 {
+  font: normal bold 39px/50px var(--roboto);
+  color: var(--title-color);
+  margin-bottom: 2rem;
+}
+
+.about-content h2 span {
+  display: block;
+}
+
+.paragraph {
+  margin: 2rem 0;
+}
+
+.paragraph .para {
+  margin-bottom: 1rem;
+}
+
+/* ==================== Brand Area ==================== */
+.brand-area {
+  padding: 5rem 0;
+  background-color: #f8f9fa;
+}
+
+.brand-wrapper {
+  display: flex;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+
+.brands-grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  min-width: 300px;
+}
+
+.single-brand {
+  padding: 2rem;
+  text-align: center;
+  background-color: white;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.single-brand:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--box-shadow);
+}
+
+.single-brand img {
+  margin: 0 auto;
+  max-height: 60px;
+}
+
+.experience-area {
+  flex: 1;
+  position: relative;
+  padding: 3rem;
+  background-color: white;
+  border-radius: 8px;
+  min-width: 300px;
+}
+
+.years-area {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.years {
+  font-size: 5rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin: 0;
+  padding: 1rem;
+}
+
+.years-text {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.5rem;
+  line-height: 1.2;
+}
+
+.years-text span {
+  display: block;
+}
+
+.call-area {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.call-icon {
+  color: var(--primary-color);
+}
+
+.call-icon i {
+  padding: 0 1rem;
+}
+
+.call-now {
+  display: flex;
+  flex-direction: column;
+}
+
+.call-now a {
+  font-weight: 600;
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.call-now span {
+  color: var(--text-color);
+  padding: 0.5rem 0;
+}
+
+.bg-panel {
+  position: absolute;
+  bottom: -20px;
+  right: -20px;
+  width: 100%;
+  height: 100%;
+  background-color: var(--primary-color);
+  opacity: 0.1;
+  border-radius: 8px;
+  z-index: -1;
+}
+
+/* ==================== Services Area ==================== */
+.services-area {
+  padding: 5rem 0;
+}
+
+.services-title {
+  margin-bottom: 3rem;
+}
+
+.services-title .title-text {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--title-color);
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.service-item {
+  background-color: white;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 2rem 1rem;
+  transition: all 0.3s ease;
+}
+
+.service-item:hover {
+  box-shadow: var(--box-shadow);
+  transform: translateY(-5px);
+}
+
+.service-img {
+  text-align: center;
+  padding: 1.5rem 0;
+}
+
+.service-img img {
+  margin: 0 auto;
+  max-height: 80px;
+}
+
+.service-body {
+  text-align: center;
+}
+
+.service-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--title-color);
+}
+
+.service-text {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--text-color);
+}
+
+/* ==================== Project Area ==================== */
+.project-area {
+  padding: 5rem 0;
+  background-color: #f8f9fa;
+}
+
+.project-title {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+}
+
+.project-title .title-h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--title-color);
+}
+
+.button-group {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.button-group button {
+  background-color: white;
+  border: 2px solid var(--border-color);
+  padding: 0.7rem 1.8rem;
+  margin: 0.3rem;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  text-transform: capitalize;
+  font: normal 500 18px/40px var(--roboto);
+}
+
+.button-group button:hover,
+.button-group button.active {
+  background-color: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.projects-grid-three {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.project-item {
+  margin-bottom: 2rem;
+}
+
+.our-project {
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.our-project:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--box-shadow);
+}
+
+.project-img {
+  overflow: hidden;
+}
+
+.project-img img {
+  width: 100%;
+  transition: transform 0.3s ease;
+}
+
+.our-project:hover .project-img img {
+  transform: scale(1.1);
+}
+
+.project-info {
+  padding: 1.5rem;
+}
+
+.project-info h4 {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+  color: var(--title-color);
+}
+
+/* ==================== Testimonials Area ==================== */
+.testimonials-area {
+  padding: 5rem 0;
+}
+
+.testimonials-title {
+  margin-bottom: 3rem;
+}
+
+.testimonials-title .title-h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--title-color);
+}
+
+.carousel {
+  padding: 3rem 0;
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.client {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  background-color: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: var(--box-shadow);
+  flex-wrap: wrap;
+}
+
+.client-img {
+  flex: 0 0 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.client-img img {
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+}
+
+.client-content {
+  flex: 1;
+  min-width: 200px;
+}
+
+.client-content h4 {
+  margin-bottom: 0.5rem;
+  color: var(--title-color);
+}
+
+.rating {
+  display: flex;
+  gap: 0.3rem;
+  margin-bottom: 1rem;
+  color: #ffc107;
+}
+
+.rating i {
+  font-size: 1.1rem;
+}
+
+/* ==================== Subscribe Area ==================== */
+.subscribe-area {
+  padding: 5rem 0;
+  background: var(--gradient-color);
+  color: white;
+}
+
+.subscribe {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.subscribe-title {
+  margin-bottom: 2rem;
+}
+
+.subscribe-title h4 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.subscribe-title .para {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.subscribe-form {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.subscribe-form form {
+  width: 100%;
+  max-width: 600px;
+}
+
+.form-group {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.form-control {
+  flex: 1;
+  min-width: 250px;
+  padding: 0.8rem 1.2rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.form-group .btn {
+  flex: 0 0 auto;
+}
+
+/* ==================== Footer Area ==================== */
+.footer-area {
+  padding: 4rem 0 2rem;
+  background-color: var(--title-color);
+  color: white;
+}
+
+.footer-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.site-logo {
+  padding: 1.5rem 0;
+}
+
+.social {
+  margin: 2rem 0;
+}
+
+.social h5 {
+  margin-bottom: 1.5rem;
+  font-size: 1.25rem;
+}
+
+.social a {
+  display: inline-block;
+  margin: 0 0.8rem;
+  font-size: 1.5rem;
+  color: white;
+  transition: color 0.3s ease;
+}
+
+.social a:hover {
+  color: var(--primary-color);
+}
+
+.copyrights {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.copyrights .para {
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+}
+
+.copyrights a {
+  color: var(--primary-color);
+}
+
+/* ==================== Logo Text Styles ==================== */
+.logo-text {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logo-main {
+  font-size: 2rem;
+  font-weight: 700;
+  background: var(--gradient-color);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -2px;
+}
+
+.logo-sub {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--title-color);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.footer-area .logo-main,
+.footer-area .logo-sub {
+  color: white;
+  -webkit-text-fill-color: white;
+}
+
+.footer-area .logo-main {
+  background: linear-gradient(90deg, #ffffff 0%, var(--primary-color) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ==================== Responsive Styles ==================== */
+
+/* Tablets and below (768px and down) */
+@media only screen and (max-width: 768px) {
+  .navbar-toggler {
+    display: block;
+  }
+
+  .navbar-collapse {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #ffffff;
+    box-shadow: var(--box-shadow);
+    padding: 1rem;
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navbar-collapse.show {
+    display: flex;
+  }
+
+  .navbar-nav {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    width: 100%;
+  }
+
+  .nav-item {
+    width: 100%;
+  }
+
+  .nav-link {
+    padding: 0.75rem 0;
+    width: 100%;
+  }
+
+  .banner-content {
+    flex-direction: column;
+  }
+
+  .site-title {
+    padding-right: 0;
+    text-align: center;
+  }
+
+  .site-title h1.title-text {
+    font-size: 36px;
+    line-height: 44px;
+  }
+
+  .site-buttons {
+    justify-content: center;
+  }
+
+  .banner-image {
+    order: -1;
+  }
+
+  .about-wrapper {
+    flex-direction: column;
+  }
+
+  .brands-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .brand-wrapper {
+    flex-direction: column;
+  }
+
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .client {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .client-img {
+    flex: 0 0 auto;
+  }
+
+  .form-group {
+    flex-direction: column;
+  }
+
+  .form-control {
+    width: 100%;
+    min-width: 100%;
+  }
+
+  .form-group .btn {
+    width: 100%;
+  }
+}
+
+/* Mobile devices (576px and down) */
+@media only screen and (max-width: 576px) {
+  .site-title h1.title-text {
+    font-size: 32px;
+    line-height: 40px;
+  }
+
+  .site-title h3.title-text {
+    font-size: 24px;
+    line-height: 32px;
+  }
+
+  .site-title h4.title-text {
+    font-size: 18px;
+    line-height: 26px;
+  }
+
+  .title-h1 {
+    font-size: 28px;
+    line-height: 36px;
+  }
+
+  .services-title .title-text {
+    font-size: 32px;
+    line-height: 40px;
+  }
+
+  .logo-main {
+    font-size: 1.5rem;
+  }
+
+  .logo-sub {
+    font-size: 0.85rem;
+  }
+
+  .brands-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .experience-area {
+    padding: 2rem 1.5rem;
+  }
+
+  .years {
+    font-size: 3.5rem;
+  }
+
+  .button-group button {
+    padding: 0.5rem 1.2rem;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .client-img img {
+    width: 120px;
+    height: 120px;
+  }
+
+  .about-content h2 {
+    font-size: 31px;
+    line-height: 40px;
+    letter-spacing: 0.2rem;
+  }
+}
+
+/* Extra small devices (340px and down) */
+@media only screen and (max-width: 340px) {
+  .navbar {
+    padding: 0.5rem;
+  }
+
+  .site-banner {
+    padding: 2rem 0;
+  }
+
+  .site-title h1.title-text {
+    font-size: 28px !important;
+    line-height: 36px !important;
+  }
+
+  .button {
+    padding: 0.6rem 1.2rem;
+    font-size: 13px;
+  }
+
+  .service-item {
+    width: 100%;
+    max-width: 13rem;
+    margin: 0 auto;
+  }
+
+  .form-control {
+    width: 100%;
+    max-width: 15rem;
+    margin: 0 auto;
+  }
+}
